@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CDC/institution</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+   .button_red {background-color: #f44336;}
+   .button_green {background-color: #4CAF50;}
+   .button_blue {background-color: #008CBA;}
+  </style>
+
+   <script>
+    function myFunction() {
+      location.replace("sign_up")
+     }
+  </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">{{values.email}}</span>
+            </div>
+            
+          </div>
+        </form>
+      </nav>
+<br>
+<div class="table-responsive">
+<!-- <form action='update_check_A/R' method="POST"> -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Emial id</th>
+          <th>skills</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for type in valuesStudent %}
+                <tr>
+                <td>{{type.name}}</td>
+                <td>{{type.email}}</td>
+                <form action='accept/{{type.id}}' method="POST">
+                  {% csrf_token %}
+                <td><input  type="text"  class="form-control" id="Your_expertise_in" name="Your_expertise_in"  value="{{type.Your_expertise_in}}"></td>
+                <!-- <td>{{type.Your_expertise_in}}</td> -->
+                <td>
+                <!-- <a href= 'accept/{{type.id}}'> -->
+                <button
+                  background-color: #f44336;
+                  type="submit"
+                  id="btn-Accept"
+                  class="btn btn-primary btn-block button_green">
+                  Accept
+                </button>
+                </a>
+                </td>
+               </form>
+                <td>
+                <a href='reject/{{type.id}}'>
+                <button
+                  type="submit"
+                  id="btn-Reject"
+                  class="btn btn-primary btn-block button_red">
+                   Reject
+                  </button>
+                </a>
+                </td>
+                </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+<!-- </form> -->
+<td>
+  <!-- <a href= 'reject/{{type.id}}'> -->
+  <button
+    type="submit"
+    id="btn-Reject"
+    class="btn btn-primary btn-block button_red"
+    onclick="myFunction()">
+     logout
+    </button>
+  <!-- </a> -->
+  </td>
+
+</div>
+
+</body>
+</html>

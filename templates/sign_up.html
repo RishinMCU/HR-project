@@ -1,0 +1,101 @@
+<!-- This HTML is written by Rishin Patra-21jun/2021(Note-Working)-->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Sign up rishin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+  <style>
+    body, html {
+      height: 100%;
+      background-color: ##ffffff;
+      background-size:cover;
+    }
+
+    .login-container {
+      position: relative;
+      height: 100%;
+    }
+
+    .login-box {
+      position: fixed;
+      right: 58%;
+      top: 48%;
+      transform: translateY(-50%);
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+
+    .login-header {
+      text-align: center;
+    }
+
+    .login-header img {
+      width: 200px;
+    }
+    
+    .forgot-password {
+      text-align: right;
+      float: right;
+      font-size: 10px
+    }
+
+    #error-message {
+      display: none;
+    }
+  </style>
+  <script>
+    function myFunction() {
+      location.replace("register")
+     }
+  </script>
+<body>
+  <img src="/static/signin-image.jpg" alt="HTML5 Icon" style="width:310px; height:365px; position:absolute;  left: 60%; top: 24%;">
+  <div class="login-container">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 login-box">
+      <div id="error-message" class="alert alert-danger"></div>
+      <form action="sign_up" method="POST">
+      {% csrf_token %}
+        <H1 style="font-size: 350%; font-weight: bold;">Sign up</H1>
+        <H1 >  </H1>
+        <div class="form-group">
+         <label for="name">Email</label>
+          <input  type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="name">Password</label>
+          <input  type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
+        </div>
+        <button
+          type="submit"
+          id="btn-login"
+          class="btn btn-primary btn-block">
+            Sign In
+        </button>
+        <span class="forgot-password">
+          <a  title="Forgot Password" id="link-reset">Forgot Password?</a>
+        </span>
+        <button
+          type="button"
+          id="btn-signup"
+          class="btn btn-default btn-block"
+          onclick="myFunction()">
+            No account yet?  Sign Up
+        </button>
+        <hr>
+        <button
+          type="button"
+          id="btn-google"
+          class="btn btn-default btn-danger btn-block">
+            Sign In with Google
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

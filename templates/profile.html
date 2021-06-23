@@ -1,0 +1,67 @@
+<!-- This HTML is written by Rishin Patra-21jun/2021(Note-Working)-->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" type="image/x-icon">
+    <title>View</title>
+    <link rel="stylesheet" href="{% static '/css/profile.css' %}">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="logo">Profile</a>
+        <h3><a class="logout" href="sign_up">Logout</a></h3>
+    </header>
+
+    <main>
+        <!-- <div class="graphics">
+            <img class='graphic-img' src="/static/img/profile-graphic.svg" alt="">
+        </div> -->
+
+        <div class="graphics">
+            <img src="{% static '/img/profile-graphic.svg' %}" alt="" style="width:340px; height:405px; position:absolute;  right: 60%; top: 24%;">
+        </div>
+        <div class="profile-info">
+
+            <!--<div class="user-profile-image-box">
+                <form class="user-profile-image-box"     action="#">
+                    <label for="img"><img class='profile-image' src="{% static '/img/profile-icon.svg' %}" alt=""></label>
+                    <input style="  visibility:hidden; width:0; height:0" type="file" id="img" name="img" accept="image/*">
+                    <input type="submit">
+                  </form>
+            </div>
+            <!--info saved/pulled from daabase starts from here-->
+            <div class="user-info">
+                <div class="label-data">
+                    <div class="label">Name</div>
+                    <form >
+                        <input type="text" value="{{user.first_name}}"><br>
+                    </form>
+                    <!--<div class="data">{{user.first_name}}</div>-->
+
+                </div>
+
+                <div class="label-data">
+                    <div class="label">Ph.number</div>
+
+                    <div class="data">{{user.email}}</div>
+                </div>
+
+                <div class="label-data">
+                    <div class="label">Gmail</div>
+
+                    <div class="data">{{user.username}}</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
